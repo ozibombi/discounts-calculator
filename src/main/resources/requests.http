@@ -1,0 +1,44 @@
+### Create Product
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "My product",
+  "price": 99.99
+}
+
+### List Products
+GET http://localhost:8080/api/products
+
+### Save Amount Discount Rule
+POST http://localhost:8080/api/admin/rules
+Content-Type: application/json
+
+{
+  "discountRule": {
+    "type": "AMOUNT_BASED_AMOUNT_DISCOUNT",
+    "greaterThanEqual": 0,
+    "lowerThan": 5,
+    "discount": 5.99,
+    "priority": 1
+  }
+}
+
+### Save Percentage Discount Rule
+POST http://localhost:8080/api/admin/rules
+Content-Type: application/json
+
+{
+  "discountRule": {
+    "type": "AMOUNT_BASED_PERCENTAGE_DISCOUNT",
+    "greaterThanEqual": 0,
+    "lowerThan": 5,
+    "percentage": 10,
+    "priority": 0
+  }
+}
+
+
+### GET request to fetch product prices
+GET http://localhost:8080/api/products/9e8a79d6-0248-4879-b6dd-7df9ff0f4222/prices?amount=1
+Accept: application/json
